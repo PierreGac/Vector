@@ -1,0 +1,48 @@
+﻿Vector3Short:
+
+
+    public int ComputeHash()
+    {
+        int p1 = x << 20;
+        if (x < 0)
+        {
+            p1 = ((__NEGATIVE_OFFSET - ((x ^ (x >> 15)) - (x >> 15))) | __NEGATIVE_FLAG) << 20;
+        }
+        int p2 = y << 10;
+        if (y < 0)
+        {
+            p2 = ((__NEGATIVE_OFFSET - ((y ^ (y >> 15)) - (y >> 15))) | __NEGATIVE_FLAG) << 10;
+        }
+        int p3 = z;
+        if (p3 < 0)
+        {
+            p3 = ((__NEGATIVE_OFFSET - ((z ^ (z >> 15)) - (z >> 15))) | __NEGATIVE_FLAG);
+        }
+        return p1 | p2 | p3;
+    }
+
+
+	/// <summary>
+    /// Converts a hash into a Vector3Int
+    /// </summary>
+    /// <param name="hash"></param>
+    /// <returns></returns>
+    public static Vector3Short HashToVector3(int hash)
+    {
+        short p1 = (short)(hash >> 20);
+        if ((p1 & __NEGATIVE_FLAG) == __NEGATIVE_FLAG)
+        {
+            p1 = (short)-(__ALLOWED_BITS - p1);
+        }
+        short p2 = (short)(hash >> 10 & ~(__ALLOWED_BITS << 10));
+        if ((p2 & __NEGATIVE_FLAG) == __NEGATIVE_FLAG)
+        {
+            p2 = (short)-(__ALLOWED_BITS - p2);
+        }
+        short p3 = (short)(hash & ~(__ALLOWED_BITS << 20 | __ALLOWED_BITS << 10));
+        if ((p3 & __NEGATIVE_FLAG) == __NEGATIVE_FLAG)
+        {
+            p3 = (short)-(__ALLOWED_BITS - p3);
+        }
+        return new Vector3Short(p1, p2, p3);
+    }
