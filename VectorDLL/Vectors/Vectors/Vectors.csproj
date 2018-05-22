@@ -65,6 +65,7 @@
     <Compile Include="Vector2Short.cs" />
     <Compile Include="Vector3Int.cs" />
     <Compile Include="Vector3Short.cs" />
+    <Compile Include="Vector3ShortPriorityQueue.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="OldStuff.txt" />

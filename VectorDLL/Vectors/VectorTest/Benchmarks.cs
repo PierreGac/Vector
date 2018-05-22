@@ -238,7 +238,7 @@ namespace VectorTest
 
         public static long BenchmarkShortDictionaryLookupsCompLong_VecVec(int elements, bool positive)
         {
-            Dictionary<Vector3Short, Vector3Short> dic = new Dictionary<Vector3Short, Vector3Short>(new Vector3ShortLongComparer());
+            Dictionary<Vector3Short, Vector3Short> dic = new Dictionary<Vector3Short, Vector3Short>(new Vector3Short64Comparer());
             Vector3Short[] array = Get1E7ShortArray(positive);
             for (int i = 0; i < elements; i++)
             {

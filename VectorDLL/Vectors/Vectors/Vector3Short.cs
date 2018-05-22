@@ -6,9 +6,14 @@
 [Serializable]
 public struct Vector3Short : IEquatable<Vector3Short>, IEquatable<long>
 {
-    public const short __NEGATIVE_FLAG = 0x200;
-    public const short __ALLOWED_BITS = 0x3FF;
-    public const short __NEGATIVE_OFFSET = __ALLOWED_BITS - __NEGATIVE_FLAG;
+    public static Vector3Short zero { get; } = new Vector3Short(0, 0, 0);
+    public static Vector3Short one { get; } = new Vector3Short(1, 1, 1);
+    public static Vector3Short up { get; } = new Vector3Short(0, 1, 0);
+    public static Vector3Short down { get; } = new Vector3Short(0, -1, 0);
+    public static Vector3Short left { get; } = new Vector3Short(-1, 0, 0);
+    public static Vector3Short right { get; } = new Vector3Short(1, 0, 0);
+    public static Vector3Short forward { get; } = new Vector3Short(0, 0, 1);
+    public static Vector3Short back { get; } = new Vector3Short(0, 0, -1);
 
     public short x;
     public short y;

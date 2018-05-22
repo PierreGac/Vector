@@ -3,20 +3,12 @@
 [Serializable]
 public struct Vector2Short : IEquatable<Vector2Short>, IEquatable<int>
 {
-    private static readonly Vector2Short _zero = new Vector2Short(0, 0);
-    public static Vector2Short zero { get { return _zero; } }
-    private static readonly Vector2Short _one = new Vector2Short(1, 1);
-    public static Vector2Short one { get { return _one; } }
-    private static readonly Vector2Short _up = new Vector2Short(0, 1);
-    public static Vector2Short up { get { return _up; } }
-    private static readonly Vector2Short _down = new Vector2Short(0, -1);
-    public static Vector2Short down { get { return _down; } }
-    private static readonly Vector2Short _left = new Vector2Short(-1, 0);
-    public static Vector2Short left { get { return _left; } }
-    private static readonly Vector2Short _right = new Vector2Short(1, 0);
-    public static Vector2Short right { get { return _right; } }
-
-
+    public static Vector2Short zero { get; } = new Vector2Short(0, 0);
+    public static Vector2Short one { get; } = new Vector2Short(1, 1);
+    public static Vector2Short up { get; } = new Vector2Short(0, 1);
+    public static Vector2Short down { get; } = new Vector2Short(0, -1);
+    public static Vector2Short left { get; } = new Vector2Short(-1, 0);
+    public static Vector2Short right { get; } = new Vector2Short(1, 0);
 
     public short x;
     public short y;

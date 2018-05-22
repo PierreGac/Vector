@@ -17,7 +17,7 @@ public class Vector3ShortComparer : IEqualityComparer<Vector3Short>
     }
 }
 
-public class Vector3ShortLongComparer : IEqualityComparer<Vector3Short>
+public class Vector3Short64Comparer : IEqualityComparer<Vector3Short>
 {
     public bool Equals(Vector3Short v1, Vector3Short v2)
     {
