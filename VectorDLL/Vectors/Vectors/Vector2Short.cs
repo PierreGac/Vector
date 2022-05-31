@@ -59,6 +59,24 @@ public struct Vector2Short : IEquatable<Vector2Short>, IEquatable<int>
         this.y = y;
     }
 
+    public Vector2Short(int x, int y)
+    {
+        this.x = (short)x;
+        this.y = (short)y;
+    }
+
+    public Vector2Short(int x, short y)
+    {
+        this.x = (short)x;
+        this.y = y;
+    }
+
+    public Vector2Short(short x, int y)
+    {
+        this.x = x;
+        this.y = (short)y;
+    }
+
     public Vector2Short(Vector3Short vector3)
     {
         x = vector3.x;
@@ -67,7 +85,7 @@ public struct Vector2Short : IEquatable<Vector2Short>, IEquatable<int>
 
     public int ComputeHash()
     {
-        return (int)x << 16 | (int)y;
+        return x << 16 | (int)y;
     }
 
     /// <summary>
@@ -198,6 +216,16 @@ public struct Vector2Short : IEquatable<Vector2Short>, IEquatable<int>
         return new Vector2Short((short)(v1.x + v2.x), (short)(v1.y + v2.y));
     }
 
+    public static Vector2Short operator +(int i, Vector2Short v1)
+    {
+        return new Vector2Short((short)(v1.x + i), (short)(v1.y + i));
+    }
+
+    public static Vector2Short operator +(Vector2Short v1, int i)
+    {
+        return i + v1;
+    }
+
     public static Vector2Short operator -(Vector2Short v1, Vector2Short v2)
     {
         return new Vector2Short((short)(v1.x - v2.x), (short)(v1.y - v2.y));
@@ -208,6 +236,16 @@ public struct Vector2Short : IEquatable<Vector2Short>, IEquatable<int>
         return new Vector2Short((short)(-v1.x), (short)(-v1.y));
     }
 
+    public static Vector2Short operator -(int i, Vector2Short v1)
+    {
+        return new Vector2Short((short)(i - v1.x), (short)(i - v1.y));
+    }
+
+    public static Vector2Short operator -(Vector2Short v1, int i)
+    {
+        return new Vector2Short((short)(v1.x - i), (short)(v1.y - i));
+    }
+
     public static Vector2Short operator *(int i, Vector2Short v1)
     {
         return new Vector2Short((short)(i * v1.x), (short)(i * v1.y));
@@ -215,7 +253,7 @@ public struct Vector2Short : IEquatable<Vector2Short>, IEquatable<int>
 
     public static Vector2Short operator *(Vector2Short v1, int i)
     {
-        return new Vector2Short((short)(i * v1.x), (short)(i * v1.y));
+        return i * v1;
     }
 
     /// <summary>
